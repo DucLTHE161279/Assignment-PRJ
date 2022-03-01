@@ -5,12 +5,14 @@
  */
 package controller;
 
+import dal.AccountDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 
 /**
  *
@@ -32,7 +34,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -46,7 +48,22 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+           String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountDBContext db = new AccountDBContext();
+        Account account = db.getAccount(username, password);
+        if(account == null)
+        {
+            request.getSession().setAttribute("account", null);
+            response.getWriter().println("login failed!");
+        }
+        else
+        {
+            request.getSession().setAttribute("account", account);
+            response.getWriter().println("hello "+ account.getDisplayname());
+        }
+    
+
     }
 
     /**

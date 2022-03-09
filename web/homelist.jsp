@@ -1,9 +1,10 @@
 <%-- 
     Document   : homelist
-    Created on : Mar 8, 2022, 8:10:13 AM
+    Created on : Feb 27, 2022, 10:45:30 PM
     Author     : Dell
 --%>
 
+<%@page import="model.Order"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,11 +17,14 @@
    
     <%
     ArrayList<Product> products= (ArrayList<Product>)request.getAttribute("products");
- 
+   Order order=(Order) session.getAttribute("shoppingcart");
+    if(order==null){
+        order =new Order();
+    }
     %>
     </head>
     <body>
-      
+        <%= order.getSize() +" "%> item in the shopping cart.
         <table border ="1px">
             
             <tr>
@@ -40,9 +44,12 @@
                   <input type="submit" value="Buy">
                     </form>
               </td>
+              
        
                   </tr>
               <%}%>
         </table>
+        
+        <a href="cart"><button>Check Out</button></a>
     </body>
 </html>

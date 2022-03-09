@@ -59,8 +59,9 @@ request.getRequestDispatcher("login.jsp").forward(request, response);
         }
         else
         {
+            
             request.getSession().setAttribute("account", account);
-            response.getWriter().println("hello "+ account.getDisplayname());
+               response.sendRedirect("home");
         }
     
 

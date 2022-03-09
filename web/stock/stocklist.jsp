@@ -28,7 +28,8 @@
                <td>ID</td>
                 <td>Product</td>
                     <td>Price</td>
-                    <td>Quantity<input type="submit" value="Update"></td>
+                    <td>Quantity</td>
+                    <td> </td>
                       
             </tr>
             <%
@@ -38,8 +39,8 @@
                      <td><%=p.getId()%></td>
                 <td><%=p.getName()%></td>
               <td><%=p.getPrice()%></td>
-              <td><input type="text" name="quantity" value="<%=p.getQuantity()%>"> </td>
-           
+              <td><%=p.getQuantity()%></td>
+              <td><a href="update?id=<%=p.getId()%>">Update</a></td>
        
                   </tr>
               <%}%>

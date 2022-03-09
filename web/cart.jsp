@@ -18,6 +18,7 @@
         %>
     </head>
     <body>
+        <a href="home">Continue shopping</a>
         <%if(order!=null){%>
           <table border ="1px">
             
@@ -43,12 +44,14 @@
                   </tr>
               <%}%>
               <tr>
-                  <td colspan="3"></td>
+                  <td colspan="3">You need to pay</td>
                   <td ><%=order.getTotal()%></td>                  
               </tr>
         </table>
               <%}else{%>
               you did not buy anything .
               <%}%>
+            
+              
     </body>
 </html>

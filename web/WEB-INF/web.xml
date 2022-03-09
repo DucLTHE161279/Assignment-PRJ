@@ -16,6 +16,18 @@
         <servlet-name>CheckOutController</servlet-name>
         <servlet-class>controller.CheckOutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeOptionController</servlet-name>
+        <servlet-class>controller.HomeOptionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertStockController</servlet-name>
+        <servlet-class>controller.stock.InsertStockController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StockListController</servlet-name>
+        <servlet-class>controller.stock.StockListController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>CheckOutController</servlet-name>
         <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeOptionController</servlet-name>
+        <url-pattern>/homeoption</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertStockController</servlet-name>
+        <url-pattern>/insert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StockListController</servlet-name>
+        <url-pattern>/stocklist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

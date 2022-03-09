@@ -3,24 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.stock;
 
-import dal.AccountDBContext;
+import dal.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import model.Product;
 
 /**
  *
  * @author Dell
  */
-public class LoginController extends HttpServlet {
+public class InsertStockController extends HttpServlet {
 
- 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -34,7 +45,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-request.getRequestDispatcher("login.jsp").forward(request, response);
+        ProductDBContext db = new ProductDBContext();
+        ArrayList<Product> products= db.getProducts();
+        request.setAttribute("products", products);
+        request.getRequestDispatcher("/stock/insert.jsp").forward(request, response);
     }
 
     /**
@@ -48,23 +62,32 @@ request.getRequestDispatcher("login.jsp").forward(request, response);
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        AccountDBContext db = new AccountDBContext();
-        Account account = db.getAccount(username, password);
-        if(account == null)
-        {
-            request.getSession().setAttribute("account", null);
-            response.getWriter().println("login failed!");
-        }
-        else
-        {
-            
-            request.getSession().setAttribute("account", account);
-               response.sendRedirect("homeoption");
-        }
-    
-
+        String raw_id = request.getParameter("id");
+        String raw_name = request.getParameter("name");
+        String raw_price = request.getParameter("price");
+        String raw_quantity = request.getParameter("quantity");
+      
+        
+        //validate data
+        int id = Integer.parseInt(raw_id);
+       
+        String name = raw_name;
+           int price = Integer.parseInt(raw_price);
+          int quantity = Integer.parseInt(raw_quantity);
+        
+      
+        Product p = new Product();
+       
+        p.setId(id);
+        p.setName(name);
+        p.setPrice(price);
+        p.setQuantity(quantity);
+        
+        ProductDBContext db = new ProductDBContext();
+        db.insertProduct(p);
+        
+       
+        response.sendRedirect("stocklist");
     }
 
     /**

@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>Choose your option</h1>
-        
-      <form action="stocklist" method="GET"> <input type="submit" value="Stock"/> </form>
+
+        <form action="stocklist" method="GET"> <input type="submit" value="Stock Manage"/> </form>
         <form action="home" method="GET"> <input type="submit" value="shopping"/> </form>
         <a><button> Orders Today </button></a>
     </body>

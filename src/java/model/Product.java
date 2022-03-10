@@ -15,6 +15,7 @@ public class Product {
    private int price;
    private int quantity;
 
+
     public int getQuantity() {
         return quantity;
     }

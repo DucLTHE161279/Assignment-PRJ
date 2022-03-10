@@ -5,29 +5,36 @@
  */
 package controller;
 
+import dal.AccountDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 
 /**
  *
- * @author Dell
+ * @author SAP-LAP-FPT
  */
-public class HomeOptionController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public abstract class BaseAuthController extends HttpServlet {
 
+    private boolean isAuthenticated(HttpServletRequest request)
+    {
+        Account account = (Account) request.getSession().getAttribute("account");
+        if(account == null)
+            return false;
+        else
+        {
+            String url = request.getServletPath();
+            AccountDBContext db = new AccountDBContext();
+            int permission = db.getPermission(account.getUsername(), url);
+            return permission >0;
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -41,11 +48,19 @@ public class HomeOptionController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        request.getRequestDispatcher("homeoption.jsp").forward(request, response);
-  
-    
+        if(isAuthenticated(request))
+        {
+            processGet(request, response);
+        }
+        else
+        {
+            response.getWriter().println("access denined!");
+        }
     }
+    protected abstract void processGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException;
+    protected abstract void processPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException;
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -58,7 +73,15 @@ public class HomeOptionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        if(isAuthenticated(request))
+        {
+            //business
+            processPost(request, response);
+        }
+        else
+        {
+            response.getWriter().println("access denined!");
+        }
     }
 
     /**

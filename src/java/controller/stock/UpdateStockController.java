@@ -5,6 +5,7 @@
  */
 package controller.stock;
 
+import controller.BaseAuthController;
 import dal.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +20,7 @@ import model.Product;
  *
  * @author Dell
  */
-public class UpdateStockController extends HttpServlet {
+public class UpdateStockController extends BaseAuthController {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,7 +43,7 @@ public class UpdateStockController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        int id= Integer.parseInt(request.getParameter("id"));
         ProductDBContext db= new ProductDBContext();
@@ -61,7 +62,7 @@ public class UpdateStockController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           String raw_id = request.getParameter("id");
         String raw_name = request.getParameter("name");

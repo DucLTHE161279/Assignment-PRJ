@@ -21,7 +21,7 @@
     %>
     </head>
     <body>
-       
+     
         <table border ="1px">
             
             <tr>
@@ -29,6 +29,8 @@
                 <td>Product</td>
                     <td>Price</td>
                     <td>Quantity</td>
+                    <td>Import <input type="submit" value="update"></td>
+                    <td> Sold</td>
                     <td> </td>
                       
             </tr>
@@ -40,6 +42,9 @@
                 <td><%=p.getName()%></td>
               <td><%=p.getPrice()%></td>
               <td><%=p.getQuantity()%></td>
+              <td><input type="text" name=""> </td>
+              <td> </td>
+           
               <td><a href="update?id=<%=p.getId()%>">Update</a></td>
        
                   </tr>

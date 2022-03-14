@@ -14,7 +14,7 @@
         <title>JSP Page</title>
         <%
         Order order= (Order)session.getAttribute("shoppingcart");
-        
+        float totaldiscounted= order.getTotal()-order.getTotal()/4;
         %>
     </head>
     <body>
@@ -48,6 +48,12 @@
                   <td ><%=order.getTotal()%></td>                  
               </tr>
         </table>
+              
+            
+             
+              gia sau khi chiet khau la : <%=totaldiscounted%>
+              
+           
               <%}else{%>
               you did not buy anything .
               <%}%>

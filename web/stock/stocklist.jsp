@@ -6,7 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Product"%>
-<%@page import="model.Product"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,8 +17,13 @@
    
     <%
     ArrayList<Product> products= (ArrayList<Product>)request.getAttribute("products");
-  
+  Integer pageindex =(Integer)request.getAttribute("pageindex");
+  Integer totalpage=(Integer)request.getAttribute("totalpage");
+    
+    
     %>
+    <script src="js/pagger.js" type="text/javascript"></script>
+    <link href="css/pagger.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
      
@@ -29,7 +34,8 @@
                 <td>Product</td>
                     <td>Price</td>
                     <td>Quantity</td>
-                    <td>Import <input type="submit" value="update"></td>
+                    <td>Date</td>
+                    <td> Import Quantity</td>
                     <td> Sold</td>
                     <td> </td>
                       
@@ -42,7 +48,11 @@
                 <td><%=p.getName()%></td>
               <td><%=p.getPrice()%></td>
               <td><%=p.getQuantity()%></td>
-              <td><input type="text" name=""> </td>
+              
+              <td><%=p.getDate()%></td>
+              <td><%=p.getImports()%></td>
+               <td><%=p.getSold()%></td>
+              
               <td> </td>
            
               <td><a href="update?id=<%=p.getId()%>">Update</a></td>
@@ -50,7 +60,15 @@
                   </tr>
               <%}%>
         </table>
+      
+        
+        
         <a href="insert"><button> Insert the new one</button></a>
-
+        
+        <div id="container" class="pagger" > </div>
+        <script> 
+      pagger("container",<%=pageindex%>,<%=totalpage%>,3);
+        </script>
+      
     </body>
 </html>

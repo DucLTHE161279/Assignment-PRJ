@@ -9,6 +9,7 @@ import controller.BaseAuthController;
 import dal.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -68,7 +69,10 @@ public class UpdateStockController extends BaseAuthController {
         String raw_name = request.getParameter("name");
         String raw_price = request.getParameter("price");
         String raw_quantity = request.getParameter("quantity");
-      
+            String raw_date = request.getParameter("date");
+        String raw_import = request.getParameter("import");
+          String raw_sold = request.getParameter("sold");
+        
         
         //validate data
         int id = Integer.parseInt(raw_id);
@@ -76,7 +80,9 @@ public class UpdateStockController extends BaseAuthController {
         String name = raw_name;
            int price = Integer.parseInt(raw_price);
           int quantity = Integer.parseInt(raw_quantity);
-        
+         Date date = Date.valueOf(raw_date);
+                 int imports= Integer.parseInt(raw_import);
+                   int sold = Integer.parseInt(raw_sold);
       
         Product p = new Product();
        
@@ -84,6 +90,9 @@ public class UpdateStockController extends BaseAuthController {
         p.setName(name);
         p.setPrice(price);
         p.setQuantity(quantity);
+            p.setDate(date);
+        p.setImports(imports);
+        p.setSold(sold);
         
         ProductDBContext db = new ProductDBContext();
         db.updateProduct(p);

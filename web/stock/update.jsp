@@ -23,6 +23,9 @@
             Name: <input type="text" name="name" value="<%=p.getName()%>"><br/>
             Price:<input type="text" name="price" value="<%=p.getPrice()%>"><br/>
             Quantity:<input type="text" name="quantity" value="<%=p.getQuantity()%>"><br/>
+            Date: <input type="date" name="date" value="<%=p.getDate()%>"><br/>
+            Import:<input type="text" name="import" value="<%=p.getImports()%>"><br/>
+            Sold:<input type="text" name="sold" value="<%=p.getSold()%>"><br/>
             <input type="submit" value="Save">
         </form>
   

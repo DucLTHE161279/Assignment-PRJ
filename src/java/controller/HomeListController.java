@@ -43,9 +43,26 @@ public  class HomeListController extends BaseAuthController {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                ProductDBContext db= new ProductDBContext();
-     ArrayList<Product> products =db.getProducts();
-     request.setAttribute("products", products);
+             ProductDBContext db = new ProductDBContext();
+                 int pagesize=10;
+           String page= request.getParameter("page");
+           if(page==null||page.trim().length()==0)
+           {
+               page="1";
+           }
+           int pageindex= Integer.parseInt(page);
+        ArrayList<Product> products= db.getProductsByPage(pageindex,pagesize);
+        
+        request.setAttribute("products", products);
+        
+            int count= db.count(); 
+     int totalpage = (count%pagesize==0)?(count/pagesize):(count/pagesize)+1 ;
+     
+     request.setAttribute("totalpage",totalpage);
+          request.setAttribute("pageindex",pageindex);
+        
+     
+     
         request.getRequestDispatcher("homelist.jsp").forward(request, response);
     }
 

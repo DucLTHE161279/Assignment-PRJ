@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 12, 2022, 9:43:42 PM
+    Author     : Dell
+*/
+.pagger a{
+    border-width: 1px;
+    border-style: solid;
+    border-color: blue;
+    padding: 2px;
+    margin: 2px;
+}

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Dell
  */
 public class Order {
+    
   private ArrayList<OrderDetail> details = new ArrayList<>();
     public int getSize(){
         return details.size();

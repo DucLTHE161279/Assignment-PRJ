@@ -18,10 +18,17 @@
     <%
     ArrayList<Product> products= (ArrayList<Product>)request.getAttribute("products");
    Order order=(Order) session.getAttribute("shoppingcart");
+     Integer pageindex =(Integer)request.getAttribute("pageindex");
+  Integer totalpage=(Integer)request.getAttribute("totalpage");
+    
     if(order==null){
         order =new Order();
     }
     %>
+ <script src="js/paggerforshopping.js" type="text/javascript"></script>
+ 
+    
+    
     </head>
     <body>
         <%= order.getSize() +" "%> item in the shopping cart.
@@ -50,6 +57,13 @@
               <%}%>
         </table>
         
+           <div id="container" class="pagger" > </div>
+        <script> 
+      pagger("container",<%=pageindex%>,<%=totalpage%>,3);
+        </script>
+        
         <a href="cart"><button>Check Out</button></a>
+        
+        
     </body>
 </html>

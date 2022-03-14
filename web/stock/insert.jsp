@@ -23,6 +23,9 @@
             Name: <input type="text" name="name"><br/>
             Price:<input type="text" name="price"><br/>
             Quantity:<input type="text" name="quantity"><br/>
+            Date: <input type="date" name="date"><br/>
+            Import:<input type="text" name="import"><br/>
+            Sold:<input type="text" name="sold"><br/>
             <input type="submit" value="Save">
         </form>
   

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Dell
@@ -14,7 +16,9 @@ public class Product {
    private String name ;
    private int price;
    private int quantity;
-
+private Date date;
+private int imports;
+private int sold;
 
     public int getQuantity() {
         return quantity;
@@ -57,6 +61,30 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getImports() {
+        return imports;
+    }
+
+    public void setImports(int imports) {
+        this.imports = imports;
+    }
+
+    public int getSold() {
+        return sold;
+    }
+
+    public void setSold(int sold) {
+        this.sold = sold;
     }
 
 

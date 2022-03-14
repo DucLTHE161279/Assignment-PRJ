@@ -9,6 +9,7 @@ import controller.BaseAuthController;
 import dal.ProductDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -32,8 +33,6 @@ public class InsertStockController extends BaseAuthController {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -47,7 +46,7 @@ public class InsertStockController extends BaseAuthController {
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDBContext db = new ProductDBContext();
-        ArrayList<Product> products= db.getProducts();
+        ArrayList<Product> products = db.getProducts();
         request.setAttribute("products", products);
         request.getRequestDispatcher("/stock/insert.jsp").forward(request, response);
     }
@@ -67,27 +66,34 @@ public class InsertStockController extends BaseAuthController {
         String raw_name = request.getParameter("name");
         String raw_price = request.getParameter("price");
         String raw_quantity = request.getParameter("quantity");
-      
-        
+        String raw_date = request.getParameter("date");
+        String raw_import = request.getParameter("import");
+        String raw_sold = request.getParameter("sold");
+
         //validate data
         int id = Integer.parseInt(raw_id);
-       
-        String name = raw_name;
-           int price = Integer.parseInt(raw_price);
-          int quantity = Integer.parseInt(raw_quantity);
         
-      
+        String name = raw_name;
+        int price = Integer.parseInt(raw_price);
+        int quantity = Integer.parseInt(raw_quantity);
+        Date date = Date.valueOf(raw_date);
+        int imports = Integer.parseInt(raw_import);
+        int sold = Integer.parseInt(raw_sold);
+        
         Product p = new Product();
-       
+        
         p.setId(id);
         p.setName(name);
         p.setPrice(price);
         p.setQuantity(quantity);
         
+        
+        p.setDate(date);
+        p.setImports(imports);
+        p.setSold(sold);
         ProductDBContext db = new ProductDBContext();
         db.insertProduct(p);
         
-       
         response.sendRedirect("stocklist");
     }
 
@@ -100,7 +106,5 @@ public class InsertStockController extends BaseAuthController {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
- 
 
 }

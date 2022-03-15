@@ -65,6 +65,10 @@
         
         <a href="insert"><button> Insert the new one</button></a>
         
+        
+        <a href="importlist"><button>Quản Lý Hàng Nhập Kho</button></a>
+        
+        
         <div id="container" class="pagger" > </div>
         <script> 
       pagger("container",<%=pageindex%>,<%=totalpage%>,3);

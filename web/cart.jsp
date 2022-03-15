@@ -23,10 +23,10 @@
           <table border ="1px">
             
             <tr>
-                <td>Product</td>
-                    <td>Quantity</td>
-                        <td> unit Price</td>
-                        <td> total</td>
+                <td>Mặt hàng</td>
+                    <td>Số lượng</td>
+                        <td> Giá mỗi mặt hàng</td>
+                        <td> Tổng tiền</td>
             </tr>
             <%
             for(OrderDetail od: order.getDetails()){
@@ -44,14 +44,18 @@
                   </tr>
               <%}%>
               <tr>
-                  <td colspan="3">You need to pay</td>
+                  <td colspan="3">Giá cho khách bán lẻ </td>
                   <td ><%=order.getTotal()%></td>                  
+              </tr>
+              <tr>
+                  <td>  Giá sau khi chiết khấu cho đại lý  là   </td>
+                  <td><%=totaldiscounted%></td>   
               </tr>
         </table>
               
             
              
-              gia sau khi chiet khau la : <%=totaldiscounted%>
+            
               
            
               <%}else{%>

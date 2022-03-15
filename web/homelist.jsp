@@ -37,6 +37,7 @@
             <tr>
                 <td>Product</td>
                     <td>Price</td>
+                   <td> Số hàng còn lại</td>
                         <td></td>
             </tr>
             <%
@@ -45,6 +46,8 @@
                  <tr>
                 <td><%=p.getName()%></td>
               <td><%=p.getPrice()%></td>
+              <td><%=p.getQuantity()%></td>
+              
               <td>
                   <form action="addcart" method="POST">
                       <input type="hidden" value="<%=p.getId()%>" name="id"/>

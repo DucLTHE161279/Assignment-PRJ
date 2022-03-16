@@ -30,13 +30,11 @@
         <table border ="1px">
             
             <tr>
-               <td>ID</td>
-                <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Date</td>
-                    <td> Import Quantity</td>
-                    <td> Sold</td>
+               <td>Mã số</td>
+                <td>Tên sản phẩm</td>
+                    <td>Giá</td>
+                    <td>Số lượng còn trong kho</td>
+              
                     <td> </td>
                       
             </tr>

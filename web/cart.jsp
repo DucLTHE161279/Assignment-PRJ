@@ -18,7 +18,7 @@
         %>
     </head>
     <body>
-        <a href="home">Continue shopping</a>
+   
         <%if(order!=null){%>
           <table border ="1px">
             
@@ -54,7 +54,7 @@
         </table>
               
             
-             
+              <a href="resetorder">Tính đơn hàng mới </a>
             
               
            

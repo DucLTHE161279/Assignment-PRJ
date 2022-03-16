@@ -14,8 +14,8 @@
     <body>
         <h1>Choose your option</h1>
 
-        <form action="stocklist" method="GET"> <input type="submit" value="Stock Manage"/> </form>
-        <form action="home" method="GET"> <input type="submit" value="shopping"/> </form>
+        <form action="stocklist" method="GET"> <input type="submit" value="Quản Lý Kho"/> </form>
+        <form action="home" method="GET"> <input type="submit" value="Tính Hóa Đơn"/> </form>
       
     </body>
 </html>

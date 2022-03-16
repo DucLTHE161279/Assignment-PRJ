@@ -44,7 +44,7 @@
               
         
            
-              <td><a href="update?id=<%=im.getImportid()%>">Update</a></td>
+              <td><a href="updateimport?importid=<%=im.getImportid()%>">Chỉnh sửa</a></td>
        
                   </tr>
               <%}%>
@@ -52,7 +52,7 @@
       
         
         
-        <a href="insert"><button> Insert the new one</button></a>
+        <a href="insertimport"><button>Nhập Hàng Mới</button></a>
         
      
       

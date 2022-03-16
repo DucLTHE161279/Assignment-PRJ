@@ -31,14 +31,14 @@
     
     </head>
     <body>
-        <%= order.getSize() +" "%> item in the shopping cart.
+      Có <%= order.getSize() +" "%>  sản phẩm trong giỏ hàng
         <table border ="1px">
             
             <tr>
-                <td>Product</td>
-                    <td>Price</td>
-                   <td> Số hàng còn lại</td>
-                        <td></td>
+                <td>Tên sản phẩm</td>
+                    <td>Giá</td>
+                
+                        <td>Chọn số lượng mua </td>
             </tr>
             <%
             for(Product p: products){
@@ -46,12 +46,13 @@
                  <tr>
                 <td><%=p.getName()%></td>
               <td><%=p.getPrice()%></td>
-              <td><%=p.getQuantity()%></td>
+         
               
               <td>
                   <form action="addcart" method="POST">
                       <input type="hidden" value="<%=p.getId()%>" name="id"/>
-                  <input type="submit" value="Buy">
+                      <input type="number" id="quantity" name="quantity" value="0" min="0" max="<%=p.getQuantity()%>"/>
+                  <input type="submit" value="Đặt hàng">
                     </form>
               </td>
               

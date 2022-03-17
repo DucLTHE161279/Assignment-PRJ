@@ -47,13 +47,10 @@
               <td><%=p.getPrice()%></td>
               <td><%=p.getQuantity()%></td>
               
-              <td><%=p.getDate()%></td>
-              <td><%=p.getImports()%></td>
-               <td><%=p.getSold()%></td>
+          
               
-              <td> </td>
-           
-              <td><a href="update?id=<%=p.getId()%>">Update</a></td>
+    
+              <td><a href="update?id=<%=p.getId()%>">Chỉnh Sửa</a></td>
        
                   </tr>
               <%}%>
@@ -61,7 +58,7 @@
       
         
         
-        <a href="insert"><button> Insert the new one</button></a>
+        <a href="insert"><button> Nhập Mặt Hàng Mới</button></a>
         
         
         <a href="importlist"><button>Quản Lý Hàng Nhập Kho</button></a>

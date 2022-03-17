@@ -54,8 +54,9 @@ request.getRequestDispatcher("login.jsp").forward(request, response);
         Account account = db.getAccount(username, password);
         if(account == null)
         {
+           
             request.getSession().setAttribute("account", null);
-            response.getWriter().println("login failed!");
+           
         }
         else
         {

@@ -28,6 +28,6 @@
             Sold:<input type="text" name="sold" value="<%=p.getSold()%>"><br/>
             <input type="submit" value="Save">
         </form>
-  
+            
     </body>
 </html>

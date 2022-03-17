@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 17, 2022, 12:48:13 AM
+    Author     : Dell
+*/
+body, html
+{
+    height: 100%;
+    margin: 0;
+}
+body{
+    background-color: lavenderblush;
+}
+.col-sm{
+     width: 150px;
+     height:150px;
+     margin-left:28%;
+
+  
+  
+}
+
+footer {
+  text-align: center;
+  padding: 2px;
+  background-color: DarkSalmon;
+  color: white;
+  margin-top:70px;
+}
+
+
+body h1{
+    text-align: center;
+    color: pink;
+}
+body h2{
+    text-align: center;
+    color: black;
+}
+body a{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+
+}
+.centerbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -66,7 +66,7 @@
       pagger("container",<%=pageindex%>,<%=totalpage%>,3);
         </script>
         
-        <a href="cart"><button>Check Out</button></a>
+        <a href="cart"><button>In Hóa Đơn</button></a>
         
         
     </body>

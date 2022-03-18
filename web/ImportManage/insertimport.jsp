@@ -16,6 +16,7 @@
         <%
         ArrayList<ImportManage> importmanage =(ArrayList<ImportManage>)request.getAttribute("importmanage");
         %>
+        <link href="css/background.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form action="insertimport" method="Post">

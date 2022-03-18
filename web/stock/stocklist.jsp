@@ -24,6 +24,7 @@
     %>
     <script src="js/pagger.js" type="text/javascript"></script>
     <link href="css/pagger.css" rel="stylesheet" type="text/css"/>
+    <link href="css/background.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
      

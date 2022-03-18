@@ -14,9 +14,13 @@
     </head>
     <body>
         <h1>Hãy chọn tính năng </h1>
-
+        <div class="imgmanage">
+            <img src="img/stockmanage.png" alt="loi anh kho"/>
         <form action="stocklist" method="GET"> <input type="submit" value="Quản Lý Kho"/> </form>
+</div>    
+        <div class="imgcaculator">
+            <img src="img/caculator.png" alt="loi anh may"/>
         <form action="home" method="GET"> <input type="submit" value="Tính Hóa Đơn"/> </form>
-        
+        </div>
     </body>
 </html>

@@ -4,25 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Mar 18, 2022, 12:43:05 AM
+    Created on : Mar 18, 2022, 9:33:15 PM
     Author     : Dell
 */
 
-body h1{
-    text-align: center;
-}
-form{
-    margin: 10px 500px;
-
-}
-img{
-    margin-left: 500px;
-    width: 200px;
-    height: 200px;
-}
 body{
     background-color: lavenderblush;
-}
-input[type=submit]{
-    padding:0px 50px;
 }

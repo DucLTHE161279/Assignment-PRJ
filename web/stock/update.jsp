@@ -16,6 +16,7 @@
         ArrayList<Product> products =(ArrayList<Product>)request.getAttribute("products");
         Product p=(Product)request.getAttribute("product");
         %>
+        <link href="css/background.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form action="update" method="Post">

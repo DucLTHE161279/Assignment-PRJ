@@ -26,12 +26,12 @@
     }
     %>
  <script src="js/paggerforshopping.js" type="text/javascript"></script>
- 
-    
+   <link href="css/pagger.css" rel="stylesheet" type="text/css"/>
+     <link href="css/background.css" rel="stylesheet" type="text/css"/>
     
     </head>
     <body>
-      Có <%= order.getSize() +" "%>  sản phẩm trong giỏ hàng
+      Có <%= order.getSize() +" "%>  sản phẩm trong hóa đơn 
         <table border ="1px">
             
             <tr>

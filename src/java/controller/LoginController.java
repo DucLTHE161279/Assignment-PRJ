@@ -54,8 +54,9 @@ request.getRequestDispatcher("login.jsp").forward(request, response);
         Account account = db.getAccount(username, password);
         if(account == null)
         {
-           
+           request.setAttribute("loginfailed", "Sai Tên Tài Khoản hoặc Mật Khẩu");
             request.getSession().setAttribute("account", null);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
            
         }
         else

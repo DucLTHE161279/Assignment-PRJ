@@ -16,6 +16,7 @@
         <%
         ArrayList<Product> products =(ArrayList<Product>)request.getAttribute("products");
         %>
+        <link href="css/background.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form action="insert" method="Post">

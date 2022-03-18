@@ -27,7 +27,7 @@
             <input type="password" placeholder="Điền mật khẩu" name="password"/> <br/>
 
             <input type="submit" value="Đăng Nhập" />
-
+            <p class="loginfailed">${loginfailed}</p>
         </form>
 </div>
 

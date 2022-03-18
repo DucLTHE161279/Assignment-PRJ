@@ -15,6 +15,7 @@
         <%
         ImportManage im =(ImportManage)request.getAttribute("oneimportmanage");
         %>
+        <link href="css/background.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form action="updateimport" method="Post">
